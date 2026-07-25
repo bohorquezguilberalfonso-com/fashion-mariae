@@ -1,0 +1,798 @@
+/* ==========================================================
+   FASHION MARIAE - ESTILOS PRINCIPALES (PURO CSS CON ANIMACIONES)
+   ========================================================== */
+
+:root {
+    --bg-primary: #0f0e0e;
+    --bg-secondary: #161515;
+    --bg-card: #1c1b1b;
+    --gold: #d4af37;
+    --gold-light: #f3e5ab;
+    --gold-dark: #aa8c2c;
+    --text-main: #f4f4f4;
+    --text-muted: #b0aca5;
+    --border-color: rgba(212, 175, 55, 0.2);
+    --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .logo {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.05em;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ==========================================================
+   ANUNCIO SUPERIOR
+   ========================================================== */
+.top-announcement {
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+    color: #000;
+    text-align: center;
+    padding: 8px 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    animation: shimmerBg 6s infinite linear;
+    background-size: 200% auto;
+}
+
+@keyframes shimmerBg {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+/* ==========================================================
+   NAVEGACIÓN
+   ========================================================== */
+.navbar {
+    position: fixed;
+    top: 36px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(15, 14, 14, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-main);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--gold);
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-btn {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0.6rem 1.4rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.nav-btn:hover {
+    background-color: var(--gold);
+    color: #000;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================
+   HERO SECTION CON ANIMACIONES CSS
+   ========================================================== */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+    margin-top: 36px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(15,14,14,0.6) 0%, rgba(15,14,14,0.9) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 1rem;
+    animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.subtitle-badge {
+    display: inline-block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 5px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    font-weight: 300;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background-color: var(--gold);
+    color: #000;
+    padding: 1rem 2.2rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: var(--gold-light);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 1rem 2.2rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(212, 175, 55, 0.05);
+    transform: translateY(-3px);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    animation: pulseLine 2s infinite;
+}
+
+@keyframes pulseLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    50.1% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ==========================================================
+   FILOSOFÍA SECTION
+   ========================================================== */
+.philosophy {
+    padding: 8rem 0;
+    background-color: var(--bg-secondary);
+    position: relative;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.section-tag {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.section-tag.light {
+    color: var(--gold-light);
+}
+
+.philosophy-text h2 {
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.philosophy-text p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+.stats-row {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+.stat-item .stat-num {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.stat-item .stat-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+}
+
+.philosophy-image-wrapper {
+    position: relative;
+}
+
+.image-frame {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.image-frame img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-frame:hover img {
+    transform: scale(1.05);
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -30px;
+    background: var(--bg-primary);
+    border: 1px solid var(--gold);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: floatBadge 4s ease-in-out infinite;
+}
+
+.floating-badge span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* ==========================================================
+   COLECCIÓN / GALERÍA
+   ========================================================== */
+.collection {
+    padding: 8rem 0;
+    background-color: var(--bg-primary);
+}
+
+.section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 5rem auto;
+}
+
+.section-header h2 {
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
+}
+
+.gallery-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.gallery-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+    border-color: var(--gold);
+}
+
+.card-img {
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-card:hover .card-img img {
+    transform: scale(1.1);
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 14, 14, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.card-wa-btn {
+    background-color: #25d366;
+    color: #fff;
+    padding: 0.9rem 1.8rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 50px;
+    transform: translateY(20px);
+    transition: var(--transition);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.card-overlay:hover .card-wa-btn {
+    transform: translateY(0);
+    background-color: #20ba5a;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+}
+
+.card-info {
+    padding: 2rem;
+}
+
+.card-category {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.card-info h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+}
+
+.card-info p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+/* ==========================================================
+   ATELIER SECTION
+   ========================================================== */
+.atelier {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, #121111 100%);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.atelier-box {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.atelier-box h2 {
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.atelier-box > p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 4rem auto;
+    font-weight: 300;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+    text-align: left;
+}
+
+.step {
+    background-color: var(--bg-card);
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    position: relative;
+    transition: var(--transition);
+}
+
+.step:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+
+.step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+}
+
+.step h4 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+    color: #fff;
+}
+
+.step p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+/* ==========================================================
+   CTA SECTION
+   ========================================================== */
+.cta-section {
+    padding: 8rem 0;
+    background: radial-gradient(circle at center, #242220 0%, var(--bg-primary) 100%);
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 700px;
+}
+
+.cta-content h2 {
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+.cta-content p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.whatsapp-main-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #25d366;
+    color: #fff;
+    padding: 1.2rem 2.8rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-radius: 50px;
+    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-main-btn:hover {
+    background-color: #20ba5a;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+}
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+.footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: 5rem 0 2rem 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer-brand p {
+    color: var(--text-muted);
+    margin-top: 1rem;
+    max-width: 320px;
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.footer-links h5, .footer-contact h5 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 300;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+    padding-left: 5px;
+}
+
+.footer-contact p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    font-weight: 300;
+}
+
+.footer-contact a {
+    display: inline-block;
+    color: #25d366;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+}
+
+/* ==========================================================
+   BOTÓN FLOTANTE WHATSAPP
+   ========================================================== */
+.float-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    transition: var(--transition);
+    animation: pulseWhatsapp 2s infinite;
+}
+
+.float-whatsapp:hover {
+    transform: scale(1.1) rotate(10deg);
+    background-color: #20ba5a;
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes pulseWhatsapp {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN
+   ========================================================== */
+@media (max-width: 900px) {
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+}
